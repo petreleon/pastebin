@@ -2,6 +2,10 @@ import * as path from 'node:path'
 import AutoLoad, { type AutoloadPluginOptions } from '@fastify/autoload'
 import { type FastifyPluginAsync } from 'fastify'
 import { fileURLToPath } from 'node:url'
+import registerMongo from './db/mongo.ts'
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -19,7 +23,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
   opts
 ): Promise<void> => {
   // Place here your custom code!
-
+  registerMongo(fastify);
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
