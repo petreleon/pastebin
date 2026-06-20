@@ -2,7 +2,7 @@ import * as path from 'node:path'
 import AutoLoad, { type AutoloadPluginOptions } from '@fastify/autoload'
 import { type FastifyPluginAsync } from 'fastify'
 import { fileURLToPath } from 'node:url'
-import registerMongo from './db/mongo.ts'
+import registerMongo from './infra/mongo.ts'
 import dotenv from 'dotenv';
 
 dotenv.config();
