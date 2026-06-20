@@ -1,9 +1,10 @@
-import * as path from 'node:path'
-import AutoLoad, { type AutoloadPluginOptions } from '@fastify/autoload'
-import { type FastifyPluginAsync } from 'fastify'
-import { fileURLToPath } from 'node:url'
-import registerMongo from './infra/mongo.ts'
+import * as path from 'node:path';
+import AutoLoad, { type AutoloadPluginOptions } from '@fastify/autoload';
+import { type FastifyPluginAsync } from 'fastify';
+import { fileURLToPath } from 'node:url';
+import registerMongo from './infra/mongo.ts';
 import dotenv from 'dotenv';
+import registerEJS from './infra/esj_view.ts';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
 ): Promise<void> => {
   // Place here your custom code!
   registerMongo(fastify);
+  registerEJS(fastify);
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins
