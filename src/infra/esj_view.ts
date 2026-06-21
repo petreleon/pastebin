@@ -6,7 +6,8 @@ function registerEJS (fastifyCore: FastifyInstance) {
     fastifyCore.register(ViewClient, {
         engine: {
             ejs: ejs
-        }
+        },
+        root: "src/templates/"
     });
 }
 
