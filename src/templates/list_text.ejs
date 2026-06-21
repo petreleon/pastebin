@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <ul><% list.forEach( (elt) => {%>
+
+        <li><a href="/post/<%= elt._id %>"><%= elt.title %></a></li>
+
+    <% }) %></ul>
+  </body>
+</html>
